@@ -1,0 +1,15 @@
+# frozen_string_literal: true
+
+source "https://rubygems.org"
+
+git_source(:github) {|repo_name| "https://github.com/#{repo_name}" }
+
+
+# Added at 2018-06-26 10:19:51 -0400 by graham.troyer-joy:
+gem "json", "~> 2.1"
+
+# Added at 2018-06-26 10:20:09 -0400 by graham.troyer-joy:
+gem "rest-client", "~> 2.0"
+
+# Added at 2018-06-26 10:20:15 -0400 by graham.troyer-joy:
+gem "pry", "~> 0.11.3"
