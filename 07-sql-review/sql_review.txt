@@ -1,0 +1,50 @@
+Write the SQL to return all of the rows in the artists tables
+
+SELECT * FROM artists
+WHERE name like "Black%"
+
+SELECT * FROM artists
+WHERE name like "%lack"
+
+
+create a table named 'fans' with an autoincrementing ID that's a primary key and a name field of type text
+
+CREATE TABLE fans (id INTEGER PRIMARY KEY, name TEXT)
+
+
+INSERT INTO fans (artist_id, name) VALUES (276, "Elbin")
+
+
+select * from artists where name like '%tang%'
+
+
+Return fans that are not fans of the Black Eyed Peas (artist id = 169)
+
+SELECT * from fans where artist_id not in (SELECT artistid FROM artists WHERE name like "%lack%")
+
+
+select * from fans 
+join artists
+on artists.artistid == fans.artist_id
+
+
+1. Which if any are foreign keys?
+2. What's the sql for joining artists / albums
+
+select name, title from albums
+join artists
+on albums.artistid == artists.artistid
+
+
+select * from albums
+join artists, fans on artists.artistid == fans.artist_id
+and albums.artistid == artists.artistid 
+
+ambiguous column name: main.artists.ArtistId: select * from artists
+join artists, fans
+join fans on artists.artistid == fans.artist_id
+and albums.artistid == artists.artistid
+
+
+
+
