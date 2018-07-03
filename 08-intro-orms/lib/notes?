@@ -1,0 +1,46 @@
+Read
+  # get a single tweet instance by id
+
+
+  def self.get_tweet_by_id(id)
+
+    "select * from tweets where id = ?"
+
+    #return a single tweet instance
+  end
+
+  # get all the tweets (instances)
+  def self.get_all_tweets
+    "select * from tweets"
+    # return an array of tweet instances
+  end
+
+Create
+  # save a new tweet to the database
+    def save_new_tweet
+      "insert into tweets (username, message), (self.username, self.message)"
+
+      #return success
+    end
+
+Update
+  # update a tweet in the database
+
+  # def self.update_tweet(tweet_intance, )
+  def update_tweet(hash)
+    "UPDATE tweets SET (username = ?, message = ?) WHERE id = (?)" 
+    # success?
+  end
+
+Delete
+  # delete a tweet from the DB
+
+    
+
+
+
+  0. What do we call the method?
+  1. Is it a class or an instance method?
+  2. What will it return?
+  3. Does it need params? What should they be?
+  4. What SQL will need to be run?

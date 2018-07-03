@@ -14,6 +14,17 @@
    * For each SQL statement, a Ruby method to fire it!
    * We'll start small, then abstract some of this away tomorrow
 
+
+
+
+
+
+
+
+
+
+   
+
 ## Create
 
 * INSERT INTO tweets (username, message) VALUES ()
