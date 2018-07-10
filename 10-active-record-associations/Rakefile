@@ -1,0 +1,15 @@
+require_relative './config/environment'
+require 'sinatra/activerecord/rake'
+
+desc "Start our app console"
+task :console do
+  Pry.start
+end
+
+desc "What time is it"
+task :time do
+  p "At the tone the time will be #{ Time.now }"
+end
+
+
+
