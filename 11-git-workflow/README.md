@@ -32,6 +32,10 @@
 
 ---
 
+## External Resources
+
+[Learn Git Branching][learn_git_branching]
+
 Git Cheat Sheet courtesty of [git tower][git_tower]
 
 ![][git_cheat_sheet]
@@ -40,3 +44,4 @@ Git Cheat Sheet courtesty of [git tower][git_tower]
 
 [git_cheat_sheet]: https://www.git-tower.com/blog/content/posts/54-git-cheat-sheet/git-cheat-sheet-large01.png
 [git_tower]: https://www.git-tower.com/blog/git-cheat-sheet/
+[learn_git_branching]: https://learngitbranching.js.org/
