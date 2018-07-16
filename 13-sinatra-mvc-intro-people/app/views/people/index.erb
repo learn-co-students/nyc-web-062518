@@ -1,0 +1,7 @@
+<h1>AT PEOPLE INDEX</h1>
+
+<% @people.each do |person| %>
+  <p>Name: <%= person.name %> Age: <%= person.age %>
+      <a href=<%= "/people/#{person.id}" %>><%= person.name %></a>
+  </p>
+<% end %>
