@@ -1,0 +1,8 @@
+<h1>U R TRYING 2 EDIT A PIZZA</h1>
+<!-- /pizzas/10 -->
+<form action="/pizzas/<%= @pizza.id %>" method="POST">
+  <input type="hidden" name="_method" value="PATCH">
+  <input type="text" name="toppings" value="<%= @pizza.toppings %>">
+  <input type="number" name="price" value="<%= @pizza.price %>">
+  <button type="submit">Edit UR Pizza</button>
+</form>
