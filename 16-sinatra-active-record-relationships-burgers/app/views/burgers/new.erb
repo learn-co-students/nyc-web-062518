@@ -1,0 +1,17 @@
+<h1>Create A New Burger</h1>
+
+<form action="/burgers" method="post">
+  <select name="restaurant_id">
+    <% @restaurants.each do |restaurant| %>
+      <option value="<%= restaurant.id %>"><%= restaurant.name %></option>
+    <% end %>
+  </select>
+
+  <br>
+
+  <input type="text" name="name" placeholder="name">
+
+  <br>
+  
+  <button type="submit">Create A New Burger</button>
+</form>

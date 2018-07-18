@@ -1,0 +1,11 @@
+<h1>Restaurant Show Page</h1>
+
+<h3><%= @restaurant.name %></h3>
+
+<% @restaurant.burgers.each do |burger| %>
+  <p>
+    Name: <%= burger.name %>
+  </p>
+<% end %>
+
+<a href="/burgers/new">Create A New Burger</a>
