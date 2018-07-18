@@ -1,0 +1,10 @@
+<h1>SHOW page for one Dolphin</h1>
+
+<p>Name: <%= @dolphin.name %></p>
+<p>Age: <%= @dolphin.age %></p>
+
+<form action="/dolphins/<%= @dolphin.id %>" method="post">
+  <input type="hidden" name="_method" value="DELETE">
+  <button type="submit">Delete this dolphin</button>
+
+</form>
