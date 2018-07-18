@@ -1,0 +1,8 @@
+<h1>EDITING A DOLPHIN</h1>
+
+<form action="/dolphins/<%= @dolphin.id %>" method="POST">
+  <input type="hidden" name="_method" value="PATCH">
+  <input type="text" name="name" value="<%= @dolphin.name %>">
+  <input type="number" name="age" value="<%= @dolphin.age %>">
+  <button type="submit">Update Dolphin</button>
+</form>
