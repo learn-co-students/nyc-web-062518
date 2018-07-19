@@ -1,0 +1,18 @@
+<h1>Editing a Movie</h1>
+
+<form action="/movies/<%= @movie.id %>" method="post">
+  <input type="hidden" name="_method" value="patch">
+  <input type="text" name="movie_title" value="<%= @movie.title %>">
+  <input type="number" name="movie_year" value="<%= @movie.year %>">
+  <input type="number" name="num_stars_beef" value="<%= @movie.rating %>">
+
+  <% @movie.actors.each do |actor| %>
+    <p><%= actor.id %></p>
+    <p><%= actor.name %></p>
+  <% end %>
+
+  <select name="dropdown">
+    <option value="<%= @movie.id %>"><%= @movie.title %></option>
+  </select>
+  <button type="submit">Edit Movie</button>
+</form>
