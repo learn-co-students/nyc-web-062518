@@ -1,9 +1,9 @@
 <h1>Create A New Bagel</h1>
 
-<!-- http://guides.rubyonrails.org/active_record_validations.html#displaying-validation-errors-in-views -->
+
 <% if @bagel.errors.any? %>
   <div>
-    <h2><%= pluralize(@bagel.errors.count, "error") %> prohibited this article from being saved:</h2>
+    <h2><%= pluralize(@bagel.errors.count, "error") %> prohibited this bagel from being saved:</h2>
     <ul>
     <% @bagel.errors.full_messages.each do |error_message| %>
       <li><%= error_message %></li>
@@ -11,8 +11,9 @@
     </ul>
   </div>
 <% end %>
-
-<%= form_for(@bagel) do |f| %>
+<!-- rails form_with will assume that I want to POST to bagels_path -->
+<%= form_for(@bagel, { method: 'POST', url: bagels_path }) do |f| %>
+<!-- form for will try to populate with attributes found on @bagel instance -->
   <%= f.label :name %>
   <%= f.text_field :name %>
   <br>
@@ -21,7 +22,7 @@
   <%= f.number_field :price %>
   <br>
   <%= f.label :tasty %>
-  <%= f.text_field :tasty %>
+  <%= f.check_box :tasty %>
 <br>
   <%= f.submit('Create A New Bagel') %>
 <% end %>

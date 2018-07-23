@@ -1,5 +1,9 @@
 <h1>HELLO From Bagels Index</h1>
 
+<% if flash[:notice] %>
+  <h1><%= flash[:notice] %></h1>
+<% end %>
+
 <ul>
 
   <% @bagels.each do |bagel| %>
