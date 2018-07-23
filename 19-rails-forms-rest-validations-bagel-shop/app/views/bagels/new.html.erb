@@ -1,0 +1,26 @@
+<h1>Create A New Bagel</h1>
+
+<%# {}[:errors] #=> nil %>
+<%# {}[:errors] #=> nil.any? undefined method .any? for nil::NilClass %>
+
+<% if flash[:errors] %>
+  <ul>
+    <% flash[:errors].each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<%= form_for(@bagel) do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <br>
+
+  <%= f.label :price %>
+  <%= f.number_field :price %>
+  <br>
+  <%= f.label :tasty %>
+  <%= f.text_field :tasty %>
+<br>
+  <%= f.submit('Create A New Bagel') %>
+<% end %>

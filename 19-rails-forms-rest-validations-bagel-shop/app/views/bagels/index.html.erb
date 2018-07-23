@@ -1,0 +1,13 @@
+<h1>HELLO From Bagels Index</h1>
+
+<ul>
+
+  <% @bagels.each do |bagel| %>
+    <li>
+      Name: <%= bagel.name %>, Price: $<%= bagel.price %>
+    </li>
+  <% end %>
+
+</ul>
+
+<%= link_to 'Create A New Bagel', new_bagel_path %>
