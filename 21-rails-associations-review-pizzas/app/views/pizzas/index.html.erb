@@ -1,0 +1,13 @@
+<h1>Pizza Index</h1>
+
+<% if flash[:notice] %>
+  <h3><%= flash[:notice] %></h3>
+<% end %>
+
+<ul>
+  <% @pizzas.each do |pizza| %>
+    <li><%= link_to pizza.name, pizza_path(pizza) %></li>
+  <% end %>
+</ul>
+
+<%= link_to 'Create A New Pizza', new_pizza_path %>

@@ -1,0 +1,19 @@
+<%= form_for @pizza do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name, placeholder: '🍕' %>
+  <!--
+    method to call on @pizza, collection(Pizzeria.all),
+    value in my params Pizzeria_instance.id,
+    what will the user see? Pizzeria_instance.name
+  -->
+  <%= f.collection_select :pizzeria_id, Pizzeria.all, :id, :name %>
+  <!-- <input list="pizzerias" name="pizza[pizzeria_name]">
+    <datalist id="pizzerias">
+      <% Pizzeria.all.each do |pizzeria| %>
+        <option value="<%= pizzeria.name %>">
+      <% end %>
+    </datalist> -->
+  <%= f.label :tasty %>
+  <%= f.check_box :tasty %>
+  <%= f.submit %>
+<% end %>

@@ -1,0 +1,17 @@
+<h1>Pizz Show Page</h1>
+
+<% if flash[:notice] %>
+  <h3><%= flash[:notice] %></h3>
+<% end %>
+
+<p><%= @pizza.name %>, made by <%= @pizza.pizzeria.name %></p>
+
+<%= link_to 'Edit This Pizza', edit_pizza_path(@pizza) %>
+
+<%= link_to 'All Pizzas', pizzas_path %>
+
+<%= button_to 'Delete this Pizza', pizza_path(@pizza), method: 'delete' %>
+
+<%= form_for @pizza, method: 'delete' do |f| %>
+  <%= f.submit 'Delete the Pizza with Form For' %>
+<% end %>
