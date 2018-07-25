@@ -1,0 +1,21 @@
+<%= form_with model: @cow, local: true do |f| %>
+  <ul>
+  <% if @cow.errors.any? %>
+      <% @cow.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+  <% end %>
+  </ul>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+    <%= f.label :farmer %>
+    <%= f.collection_select(:farmer_id, Farmer.all, :id, :name) %>
+    <%= f.submit %>
+
+<% end %>
+
+<!-- <select name="farmer_id">
+  <%# @farmers.each do |farmer| %>
+    <option value="<%# farmer.id %>"><%# farmer.name %></option>
+  <%# end %>
+</select> -->
