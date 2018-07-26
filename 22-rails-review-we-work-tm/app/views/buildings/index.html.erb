@@ -1,0 +1,7 @@
+<h1>All Buildings</h1>
+
+<ul>
+  <% @buildings.each do |b| %>
+      <li><%= link_to b.name, b %></li>
+  <% end %>
+</ul>

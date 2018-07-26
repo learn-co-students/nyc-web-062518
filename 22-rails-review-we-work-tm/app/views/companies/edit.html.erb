@@ -1,0 +1,21 @@
+<h1>Editing <%= @company.name %></h1>
+
+<ul>
+  <% if @company.errors.any? %>
+    <%= @company.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+  <% end %>
+</ul>
+
+<%= form_for @company do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <%= f.fields_for :employee do |e| %>
+    <%= e.label 'Employee Name' %>
+    <%= e.text_field :name %>
+    <%= e.label 'Employee Title' %>
+    <%= e.text_field :title %>
+  <% end %>
+  <%= f.submit %>
+<% end %>
