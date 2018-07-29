@@ -1,32 +1,22 @@
----
-Title: Intro to Rails
-Creator: Lecture by Johann Kerr <@johannkerr>, notes by Rishikesh Tirumala <@rishter>
-Type: Lecture
----
-
-
 # Auth in Rails
 
 ## Objectives
 - Understand, theoretically, how authentication and authorization work
+  - Understand the _difference_ between authentication and authorization and how they fit under the umbrella topic _auth_
 - Discuss different encryption and hashing schemes, and `bcrypt` specifically
-- Augment a user model in rails using `bcrypt` and `password_digest`
+  - Do we want to ever store plaintext user passwords? (no)
+- Augment a user model in rails using `bcrypt`, `password_digest`, and `has_secure_password`
 - Expose this information in a sample rails app
 - Go over sessions, cookies, and implement sign up, log in, and log out
 
-
-## Preparation
-Generally, this is the last Rails lecture. Students may have already taken the coding challenge before learning about Auth.
-
-Have some kind of application set up that could use some user interaction.
-
 ## Steps
 
-### How does auth work in theory? (25 minutes)
-Answer the following questions together:
+### How does auth work in theory?
 ##### What is the difference between sign-in and sign up?
 
 Sign-up happens once, and afterwards the information that is used to authenticate a user exists in the system for sign-in.
+
+Sign-up corresponds to _creating_ a new user. Sign-in is authenticating an already existing user with some identifying piece of information.
 
 ##### What is authentication?
 
@@ -34,11 +24,11 @@ It boils down to a really interesting question: _Are you who you say you are?_ A
 
 ##### What is the difference between Authentication and Authorization?
 
-Authorization happens after authentication. It's about scope, and specific information. _What is the user allowed to see/interact with?_
+Authorization happens after authentication. It's about scope, and specific information. _What is the user allowed to see/interact with?_; what is the user **authorized** to see.
 
 ##### How do passwords work?
 
-Do websites save our passwords? And if they do, how are they stored? Talk about encryption, and why hashed passwords are encrypted. We don't want malicious employees or hackers to see our passwords.
+Do websites save our passwords? And if they do, how are they stored? Should a plaintext password ever be stored?
 
 ##### What is the difference between hashing and encrypting?
 
