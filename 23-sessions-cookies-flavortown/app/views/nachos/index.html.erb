@@ -1,0 +1,13 @@
+<h1>Menu</h1>
+<!-- TODO: show us our current cart -->
+
+<% @nachos.map do |nacho| %>
+  <ul>
+    <li>
+      <%= link_to nacho.name, nacho %>
+      $<%= nacho.price %>
+      <!-- TODO: get this button working -->
+      <%= button_to "Add To Cart" %>
+    </li>
+  </ul>
+<% end %>

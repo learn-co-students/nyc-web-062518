@@ -1,24 +1,31 @@
-# README
+# Sessions and Cookies in R A I L S
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+![](https://media.giphy.com/media/p8fgbnLzWWtEI/giphy.gif)
 
-Things you may want to cover:
+# What are Sessions?
 
-* Ruby version
+### From the [Rails Docs](https://guides.rubyonrails.org/security.html#sessions):
 
-* System dependencies
+- HTTP is a stateless protocol. Sessions make it stateful.
 
-* Configuration
 
-* Database creation
+```
+Most applications need to keep track of certain state of a particular user. This
+could be the contents of a shopping basket or the user id of the currently
+logged in user. Without the idea of sessions, the user would have to identify,
+and probably authenticate, on every request. Rails will create a new session
+automatically if a new user accesses the application. It will load an existing
+session if the user has already used the application.
 
-* Database initialization
+A session usually consists of a hash of values and a session ID, usually a
+32-character string, to identify the hash. Every cookie sent to the client's
+browser includes the session ID. And the other way round: the browser will send
+it to the server on every request from the client. In Rails you can save and
+retrieve values using the session method:
+```
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+```ruby
+# in application controller
+session[:user_id] = @current_user.id
+User.find(session[:user_id])
+```
