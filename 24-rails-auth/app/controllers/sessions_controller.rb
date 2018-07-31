@@ -7,6 +7,7 @@ class SessionsController < ApplicationController
   end
 
   def create # creates a new session
+    byebug
     #code
   end
 end
