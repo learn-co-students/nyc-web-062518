@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update, :delete]
+  before_action :set_user, only: [:show, :edit, :update, :destroy]
 
   def new
     @user = User.new
@@ -21,16 +21,22 @@ class UsersController < ApplicationController
   end
 
   def edit
-    #code
     render :edit
   end
 
   def update
-    #code
+    if @user.update(user_params)
+      flash[:notice] = "Successfully updated profile"
+      redirect_to @user
+    else
+      render :edit
+    end
   end
 
-  def delete
-    byebug
+  def destroy
+    @user.destroy
+    flash[:notice] = "Deleted account for #{@user.username}"
+    redirect_to new_user_path
   end
 
   private
