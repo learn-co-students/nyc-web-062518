@@ -30,7 +30,7 @@ class UsersController < ApplicationController
   end
 
   def delete
-    #code
+    byebug
   end
 
   private
