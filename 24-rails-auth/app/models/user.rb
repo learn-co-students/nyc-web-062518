@@ -1,5 +1,7 @@
 class User < ApplicationRecord
-  has_and_belongs_to_many :songs
+  # has_and_belongs_to_many :songs
+  has_many :songs_users
+  has_many :songs, through: :songs_users
   has_many :artists, through: :songs
 
   validates :username, presence: { case_sensitive: false }
