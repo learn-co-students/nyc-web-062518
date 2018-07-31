@@ -1,4 +1,8 @@
 class User < ApplicationRecord
+  has_and_belongs_to_many :songs
+  has_many :artists, through: :songs
+
+  validates :username, presence: { case_sensitive: false }
   has_secure_password
 
   # attr_reader :password
