@@ -275,5 +275,5 @@ Finally, in `application.html.erb`:
 
 ## External Resources:
 
-- [BCrypt gem on github](https://github.com/codahale/bcrypt-ruby)
+- [BCrypt gem on github](https://github.com/codahale/bcrypt-ruby#why-you-should-use-bcrypt)
 - [Rails Docs on security](https://guides.rubyonrails.org/security.html#sessions)
