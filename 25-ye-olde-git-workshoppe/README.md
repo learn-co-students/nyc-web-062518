@@ -1,8 +1,6 @@
 # GIT
 
-
 NILCE WOKEJR:LJA:LKFJ:LKJ
-
 
 NEW FEATURE
 
@@ -25,5 +23,3 @@ NEW FEATURE
 ### Git Overview
 
 - Git definition: Version Control System
-
-# WOW GIT IS AMZing
