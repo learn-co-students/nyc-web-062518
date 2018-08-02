@@ -11,3 +11,11 @@
 - What is git fetch vs. git pull?
 - Diffing from the command line
 - Merging branches locally vs GitHub pull requests
+
+---
+
+### Git Overview
+
+- Git definition: Version Control System
+
+# WOW GIT IS AMZing
