@@ -9,6 +9,8 @@
 - Branches
 - What is remote 🤔
 - What is git fetch vs. git pull?
+  - Asks the remote (GitHub) for changes and updates my **local copy** of `origin/master`
+  - Git pull will fetch **AND** merge with my current branch
 - Diffing from the command line
 - Merging branches locally vs GitHub pull requests
 
