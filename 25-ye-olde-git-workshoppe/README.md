@@ -54,6 +54,59 @@ no changes added to commit (use "git add" and/or "git commit -a")
 - Git will tell me that I've changed a file called README.md: `modified: 25-ye-olde-git-workshoppe/README.md`
 - If I want to create a new shapshot of these changed files, I'll have to add them to the "staging area"––the pre-commit stage. Staging files is basically preparing them to be committed:
 - `git add git add 25-ye-olde-git-workshoppe/README.md` OR `git add .` to add all of my changed files to the staging area, or pre-commit zone.
+- Issuing `git status` again will tell me which files have been added to the staging area:
+
+```sh
+// 🌚🍔 git status
+On branch master
+Your branch is up to date with 'origin/master'.
+
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+	modified:   25-ye-olde-git-workshoppe/README.md
+```
+
+- I can also compare my staged files against my last commit: `git diff --staged` which asks Git to tell me what has changed about the files currently in my staging area:
+
+```sh
+// 🌚🍔 git diff --staged
+diff --git a/25-ye-olde-git-workshoppe/README.md b/25-ye-olde-git-workshoppe/README.md
+index bb9f69b..4aeeaa8 100644
+--- a/25-ye-olde-git-workshoppe/README.md
++++ b/25-ye-olde-git-workshoppe/README.md
+@@ -1,8 +1,85 @@
+-# GIT
++# Ye Olde Git Workshoppe
+
+-NILCE WOKEJR:LJA:LKFJ:LKJ
++---
++
++- What is Git?
++  - Git is a version control system (VCS)
++  - Essentially, Git allows us to travel through time in our code by creating a series of snapshots in time. These snapshots are called `commits`. You can view your commits by calling `git log` from your terminal. You can supply an optional number of commits; `git log -n 4 --oneline` will give you the 4 most recent commit messages and condense each commit.
++
+```
+
+- If these changes look good, I can create a new commit and save these in my project snapshot history: `git commit -m "adding more clarity about Git as a tool"`
+- Calling `git status` again will tell me that I've created a new commit but have not yet pushed it to the remote:
+
+```sh
+// 🌚🍔 git status
+On branch master
+Your branch is ahead of 'origin/master' by 1 commit.
+  (use "git push" to publish your local commits)
+```
+
+- What is the remote???
+  - There are **TWO COPIES** of my project. One on my machine, and another one on GitHub. I can publish my project to GitHub so collaborators can pull down changes to their machines.
+  - Calling `git remote -v` will tell me the location of the remote repo:
+
+```sh
+// 🌚🍔 git remote -v
+origin	git@github.com:learn-co-students/nyc-web-062518.git (fetch)
+origin	git@github.com:learn-co-students/nyc-web-062518.git (push)
+```
 
 ---
 
@@ -83,6 +136,8 @@ HEAD is now at 41b84c0 THE WINDOW OBJECT
 
 ---
 
+#### Coming Soon™️
+
 - How do you resolve a merge conflict?
 - How do I undo changes?
   - How do I cover my tracks
@@ -92,8 +147,6 @@ HEAD is now at 41b84c0 THE WINDOW OBJECT
 - What is git fetch vs. git pull?
   - Asks the remote (GitHub) for changes and updates my **local copy** of `origin/master`
   - Git pull will fetch **AND** merge with my current branch
-- Diffing from the command line
-- Merging branches locally vs GitHub pull requests
 
 ---
 
