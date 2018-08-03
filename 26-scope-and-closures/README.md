@@ -6,6 +6,7 @@
 
 ### Variables scope
 
+- Review variable scope in Ruby
 - Define key terms (scope resolution, lexical scope and execution context)
 - Relationship between `Lexical Scope` and `Scope Resolution`
   - Each scope is like its own bucket
