@@ -86,7 +86,7 @@ function Person(name, age) {
   console.log(this) // { name: 'andy', age: 600 }
 }
 
-let andrew = new Person('andy', 600)
+const andy = new Person('andy', 600)
 // { name: 'andy', age: 600 } // -> plain old javascript object (pojo)
 ////////////////////////////////////////////////////////////
 const hawaiianTShirt = {
@@ -138,4 +138,12 @@ console.log(personOne.sayName) //undefined
 personOne.sayName = sayName // { name: 'andy', sayName: fn }
 personOne
 console.log(personOne.sayName()) //andy says hello from undefined at undefined!
+
+
+const sampleArrow = () => this
+console.log(sampleArrow()) //window
+
+const boundArrow = sampleArrow.bind(personOne)
+console.log(boundArrow()) // window
+
 ///////////////////////////////////////////////////////
