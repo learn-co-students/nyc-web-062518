@@ -84,11 +84,54 @@ const pokemon = [
   }
 ]
 
-// Use higher order functions to query our data -> Map, Reduce, ForEach, Filter, etc
-// Grab just the names, grab just the images, combine all the weights
-// Use composition -> create some generic helper fns that we can reuse; grab me all the pokemon w/ weight less than some num
-// Construct JS classes w/ data -> constructor function
+function filterNames(pokemon) {
+  // pokemon will refer to each pokemon object while map is running
+  console.log('CALLING FILTER NAMES')
+  return pokemon.name
+}
 
+const allNamesMappedWithNamedFn = pokemon.map(filterNames)
+
+///Name Filter implemented with anonymous fn
+const allNamesMappedWithAnonFn = pokemon.map(function(pokemon) {
+  console.log('CALLING THE ANONYMOUS FUNCTION')
+  return pokemon.name
+})
+
+/******************************************************************************/
+function diyMap(arr, callback) {
+  const mappedArr = []
+  for (let i = 0; i < arr.length; i++) {
+    const currentElement = arr[i]
+    const mappedElement = callback(currentElement)
+    mappedArr.push(mappedElement)
+  }
+  return mappedArr
+}
+/******************************************************************************/
+// map using new es6 arrow function
+const mappedPokemonArrow = pokemon.map(pokemon => pokemon.name)
+/******************************************************************************/
+
+class Pokemon {
+  constructor(JSONPokemonData) {
+    this.name = JSONPokemonData.name
+    this.weight = JSONPokemonData.weight
+    this.order = JSONPokemonData.order
+  }
+
+  attack() {
+    return `${this.name} is attacking`
+  }
+
+  renderPokemon() {
+    // RETURN SOME HTML TO VIEW THIS POKEMON
+  }
+}
+
+const allPokemonObjects = pokemon.map(JSONPokemonData => new Pokemon(JSONPokemonData))
+
+/******************************************************************************/
 function grabByWeight(weight) {
   // pokeFilter and all fns below have access to weight
   return function pokeFilter(pokemon) {
@@ -99,6 +142,7 @@ function grabByWeight(weight) {
 /*****************************************************************************/
 /*********************ARROW FUNCTIONS AND THIS********************************/
 /*****************************************************************************/
+
 const person = {
   name: 'tiny',
   greet: function() {
@@ -109,7 +153,7 @@ const person = {
   }
 }
 
-console.log(person.greet()())
+console.log(person.greet()()) // person
 
 const personTwo = {
   name: 'large',
@@ -121,4 +165,4 @@ const personTwo = {
   }
 }
 
-console.log(personTwo.greet()())
+console.log(personTwo.greet()()) // window

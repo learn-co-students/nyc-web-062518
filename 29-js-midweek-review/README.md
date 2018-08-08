@@ -8,6 +8,8 @@
 - Practical Application/ leveraging of `this`
 - `bind`, `call`, `apply`
 - `++item` vs `item++`
+  - `++item` will increment THEN RETURN the NEW VALUE
+  - `item++` will return the CURRENT value THEN INCREMENT
   - `let ItemId = 0`
   - `this.id = ++ItemId`
 - JS Terms:
