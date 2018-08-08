@@ -1,3 +1,4 @@
+// PRETEND THIS IS COMING FROM OUR SERVER; THE ONLY WAY TO ACCESS IS VIA HTTP GET REQUEST
 const pokemon = [
   {
     height: 10,
@@ -84,4 +85,40 @@ const pokemon = [
 ]
 
 // Use higher order functions to query our data -> Map, Reduce, ForEach, Filter, etc
-// Use composition
+// Grab just the names, grab just the images, combine all the weights
+// Use composition -> create some generic helper fns that we can reuse; grab me all the pokemon w/ weight less than some num
+// Construct JS classes w/ data -> constructor function
+
+function grabByWeight(weight) {
+  // pokeFilter and all fns below have access to weight
+  return function pokeFilter(pokemon) {
+    return pokemon.filter(p => p.weight < weight)
+  }
+}
+
+/*****************************************************************************/
+/*********************ARROW FUNCTIONS AND THIS********************************/
+/*****************************************************************************/
+const person = {
+  name: 'tiny',
+  greet: function() {
+    console.log('THIS INSIDE OF GREET, ', this)
+    return () => {
+      return this
+    }
+  }
+}
+
+console.log(person.greet()())
+
+const personTwo = {
+  name: 'large',
+  greet: function() {
+    console.log('THIS INSIDE OF GREET, ', this)
+    return function() {
+      return this
+    }
+  }
+}
+
+console.log(personTwo.greet()())
