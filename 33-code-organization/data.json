@@ -1,0 +1,16 @@
+{
+  "restaurants": [
+    {
+      "id": 2,
+      "name": "Una Pizza Napoletana"
+    },
+    {
+      "name": "Roberta's",
+      "id": 3
+    },
+    {
+      "name": "Roberta's",
+      "id": 4
+    }
+  ]
+}
