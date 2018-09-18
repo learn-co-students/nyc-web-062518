@@ -3,18 +3,8 @@ import ReactDOM from 'react-dom';
 import './assets/css/index.css';
 import App from './components/App';
 import registerServiceWorker from './registerServiceWorker';
-import { createStore } from 'redux';
 import { Provider } from 'react-redux';
-
-function reducer(state, action) {
-  switch(action.type) {
-    default:
-      return state;
-  }
-}
-
-const store = createStore(reducer);
-
+import store from './store';
 
 // Starting: Setup this stuff first!
 // 1. createStore, => 5 ====> need a reducer
