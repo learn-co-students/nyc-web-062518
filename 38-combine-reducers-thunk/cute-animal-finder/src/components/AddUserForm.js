@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { addUserAction } from '../redux/actions';
+import UUID from 'uuid';
 
 class AddUserForm extends Component {
   state = {
@@ -16,7 +17,20 @@ class AddUserForm extends Component {
   handleSubmit = (event) => {
     event.preventDefault();
 
-    this.props.addUser(this.state.name, this.state.email, this.state.animalPreference);
+    console.log(this.props)
+    // this.props.addUser(this.state.name, this.state.email, this.state.animalPreference);
+    // (name, email, animalPreference) => dispatch(addUserAction(name, email, animalPreference))
+    // this.props.dispatch(addUserAction())
+    this.props.dispatch(
+      {
+        type: 'ADD_USER',
+        payload: { id: UUID(),
+          name: this.state.name,
+          email: this.state.email,
+          animalPreference: this.state.animalPreference }
+      }
+    )
+
   }
 
   render() {
@@ -43,4 +57,10 @@ function mapDispatchToProps(dispatch) {
   }
 }
 
-export default connect(null, mapDispatchToProps)(AddUserForm);
+// connect ==> connects you to the store
+//         ==> Higher Order Function
+//            both take and return a function
+// somethingToBeNamedSoon ===> Higher Order Component
+const HOC = connect()
+const ConnectedAddUserForm = HOC(AddUserForm);
+export default ConnectedAddUserForm;
