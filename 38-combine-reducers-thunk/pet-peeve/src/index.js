@@ -18,12 +18,15 @@ registerServiceWorker();
 
 // Ok, what to connect? What to map things to?
 //  mapStateToProps,
-//  mapDispatchToProps,
 //  connect
 
-// Worry about this later!
-// actions,
+// Write some test dispatches that do something:
 //  dispatch,
+
+// Worry about this last!
+// actions,
+//  mapDispatchToProps,
+
 
 
 // What would we do with **just** React.
