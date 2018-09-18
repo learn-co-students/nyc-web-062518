@@ -24,10 +24,10 @@ registerServiceWorker();
 //  dispatch,
 
 // Worry about this last!
-// actions,
 //  mapDispatchToProps,
 
 
+// actions are last!!
 
 // What would we do with **just** React.
 //

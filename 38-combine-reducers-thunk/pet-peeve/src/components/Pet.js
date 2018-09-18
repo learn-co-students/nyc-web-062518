@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { selectPetAction } from '../actions';
 
 const Pet = (props) => {
   console.log(props);
@@ -24,12 +25,7 @@ const Pet = (props) => {
 
 function mapDispatchToProps(dispatch) {
   return {
-    selectPet: (pet) => {
-      dispatch({
-        type: 'SELECT_PET', // OPEN_PROFILE, CHANGE_PROFILE, CHANGE_DISPLAY_PET
-        payload: pet,
-      })
-    }
+    selectPet: (pet) => dispatch(selectPetAction(pet)),
   }
 }
 

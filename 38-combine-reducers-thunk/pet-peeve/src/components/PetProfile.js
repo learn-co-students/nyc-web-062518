@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { adoptPetAction, likePetAction } from '../actions';
 
 const PetProfile = (props) => {
   const { name, age, species, gb } = props.pet;
@@ -38,18 +39,8 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return {
-    adoptPet: (pet) => {
-      dispatch({
-        type: 'REMOVE_PET',
-        payload: pet,
-      })
-    },
-    likePet: (pet) => {
-      dispatch({
-        type: 'LIKE_PET',
-        payload: pet,
-      })
-    },
+    adoptPet: (pet) => dispatch(adoptPetAction(pet)),
+    likePet: (pet) => dispatch(likePetAction(pet)),
   }
 }
 
