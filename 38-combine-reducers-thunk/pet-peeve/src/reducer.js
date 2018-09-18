@@ -1,3 +1,5 @@
+import { SELECT_PET } from './types';
+
 const initialState = {
   pets: [
     { id: 1,
@@ -31,8 +33,10 @@ export default function reducer(state = initialState, action) {
   console.log('reducer', state, action);
 
   switch(action.type) {
-    case 'SELECT_PET':
+    case SELECT_PET:
       return { ...state, currentPet: action.payload }
+    case 'ADD_PET':
+      return { ...state, pets: [...state.pets, action.payload] }
     default:
       return state;
   }
