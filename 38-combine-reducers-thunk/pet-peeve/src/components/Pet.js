@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { selectPetAction } from '../actions';
+// import { selectPetAction } from '../actions';
+import * as actions from  '../actions';
 
 const Pet = (props) => {
   console.log(props);
@@ -22,11 +23,11 @@ const Pet = (props) => {
     </li>
   )
 }
+//
+// function mapDispatchToProps(dispatch) {
+//   return {
+//     selectPet: (pet) => dispatch(selectPetAction(pet)),
+//   }
+// }
 
-function mapDispatchToProps(dispatch) {
-  return {
-    selectPet: (pet) => dispatch(selectPetAction(pet)),
-  }
-}
-
-export default connect(null, mapDispatchToProps)(Pet);
+export default connect(null, actions)(Pet);
