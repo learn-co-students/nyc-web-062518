@@ -3,7 +3,7 @@ export const loginUser = (username, password) => {
     console.log(process.env.REACT_APP_API_ENDPOINT)
     dispatch(authenticatingUser())
     // fetch(`${process.env.REACT_APP_API_ENDPOINT}/api/v1/login`)
-    fetch('http://localhost:3000/api/v1/login', {
+    fetch('http://localhost:3000/api/v1/login', { //TODO: move this to an adapter
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
