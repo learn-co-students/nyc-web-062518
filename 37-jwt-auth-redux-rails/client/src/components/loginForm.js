@@ -8,11 +8,15 @@ import { Button, Form, Segment, Message } from 'semantic-ui-react'
 class LoginForm extends React.Component {
   state = { username: '', password: '' }
 
-  handleChange = (e, { name, value }) => this.setState({ [name]: value })
+  // handleChange = (e, { name, value }) => this.setState({ [name]: value })
 
-  handleLoginSubmit = () => {
-    this.props.loginUser(this.state.username, this.state.password, this.props.history)
-    this.setState({ username: '', password: '' })
+  handleChange = (e, semanticInputData) => {
+    this.setState({ [semanticInputData.name]: semanticInputData.value })
+  }
+
+  handleLoginSubmit = () => { //semantic forms preventDefault for you
+    this.props.loginUser(this.state.username, this.state.password)
+    this.setState({ username: '', password: '' }) //reset form to initial state
   }
 
   render() {
@@ -52,20 +56,42 @@ class LoginForm extends React.Component {
   }
 }
 
-const mapStateToProps = ({ usersReducer: { authenticatingUser, failedLogin, error, user, loggedIn } }) => ({
-  authenticatingUser,
-  failedLogin,
-  error,
-  user,
-  loggedIn
-})
+// const mapStateToProps = ({ usersReducer: { authenticatingUser, failedLogin, error, user, loggedIn } }) => ({
+//   authenticatingUser,
+//   failedLogin,
+//   error,
+//   user,
+//   loggedIn
+// })
 
-const mapDispatchToProps = (dispatch) => ({ loginUser: bindActionCreators(loginUser, dispatch) })
+const mapStateToProps = (reduxStoreState) => {
+  return {
+    authenticatingUser: reduxStoreState.usersReducer.authenticatingUser,
+    failedLogin: reduxStoreState.usersReducer.failedLogin,
+    error: reduxStoreState.usersReducer.error,
+    user: reduxStoreState.usersReducer.user,
+    loggedIn: reduxStoreState.usersReducer.loggedIn
+  }
+}
 
-export default withRouter(
-  connect(
-    mapStateToProps,
-    mapDispatchToProps
-    // { loginUser }
-  )(LoginForm)
-)
+const mapDispatchToProps = (dispatch) => {
+  return {
+    loginUser: (username, password) => dispatch(loginUser(username, password))
+  }
+}
+
+const connectedToReduxHOC = connect(mapStateToProps, mapDispatchToProps)
+const connectedToReduxLoginForm = connectedToReduxHOC(LoginForm)
+const connectedToReduxHOCWithRouterLoginForm = withRouter(connectedToReduxLoginForm)
+
+export default connectedToReduxHOCWithRouterLoginForm
+
+
+// export default withRouter(connect(mapStateToProps, { loginUser })(LoginForm))
+
+// export default withRouter(
+//   connect(
+//     mapStateToProps,
+//     { loginUser }
+//   )(LoginForm)
+// )

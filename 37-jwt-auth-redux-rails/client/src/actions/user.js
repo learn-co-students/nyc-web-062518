@@ -1,5 +1,5 @@
 export const loginUser = (username, password) => {
-  return /*FUNCTION*/ (dispatch) => {
+  return /*FUNCTION*/ (dispatch) => { //thunk
     console.log(process.env.REACT_APP_API_ENDPOINT)
     dispatch(authenticatingUser())
     // fetch(`${process.env.REACT_APP_API_ENDPOINT}/api/v1/login`)
