@@ -7,6 +7,7 @@ import NotFound from './components/notFound'
 import './App.css'
 
 const App = props => {
+  console.log('%c APP Props: ', 'color: firebrick', props)
   return (
     <Fragment>
       <Nav />
@@ -21,4 +22,4 @@ const App = props => {
   )
 }
 
-export default withRouter(App)
+export default withRouter(App) //withRouter is a Higher Order Component (HOC) that returns a COPY of App with React router props injected
