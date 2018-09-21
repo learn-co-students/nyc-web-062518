@@ -22,8 +22,11 @@ const mapStateToProps = /*FUNCTION*/ (reduxStoreState) => { //TODO: user obj des
   }
 }
 
-const connectedToReduxHOC = connect(mapStateToProps)
-const connectedProfile = connectedToReduxHOC(Profile)
-const withAuthProfile = withAuth(connectedProfile)
+// const connectedToReduxHOC = connect(mapStateToProps)
+// const connectedProfile = connectedToReduxHOC(Profile)
+//
+// const withAuthProfile = withAuth(connectedProfile)
+//
+// export default withAuthProfile
 
-export default withAuthProfile
+export default withAuth(connect(mapStateToProps)(Profile))

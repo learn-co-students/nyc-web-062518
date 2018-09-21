@@ -1,8 +1,9 @@
-export const loginUser = (username, password) => {
+export const /*FUNCTION*/ loginUser = (username, password) => {
   return /*FUNCTION*/ (dispatch) => { //thunk
-    console.log(process.env.REACT_APP_API_ENDPOINT)
+    // console.log(process.env.REACT_APP_API_ENDPOINT)
     dispatch({ type: 'AUTHENTICATING_USER' })
     // fetch(`${process.env.REACT_APP_API_ENDPOINT}/api/v1/login`)
+    // adapter.loginUser(username, password)
     fetch('http://localhost:3000/api/v1/login', { //TODO: move this to an adapter
       method: 'POST',
       headers: {
@@ -23,8 +24,9 @@ export const loginUser = (username, password) => {
           throw response
         }
       })
-      // {user: {}, jwt: 'aaaaaaaaaaaaaaa.bbbbbbbbbbbbbbbbbbbbb.ccccccccccccccccccc'}
+      // {user: { username: 'chandler bing', bio: ''}, jwt: 'aaaaaaaaaaaaaaa.bbbbbbbbbbbbbbbbbbbbb.ccccccccccccccccccc'}
       .then(JSONResponse => {
+        console.log('%c INSIDE YE OLDE .THEN', 'color: navy')
         localStorage.setItem('jwt', JSONResponse.jwt)
         dispatch({ type: 'SET_CURRENT_USER', payload: JSONResponse.user })
       })
@@ -39,7 +41,7 @@ export const loginUser = (username, password) => {
 export const fetchCurrentUser = () => {
   // takes the token in localStorage and finds out who it belongs to
   return (dispatch) => {
-    dispatch(authenticatingUser())
+    dispatch(authenticatingUser()) //tells the app we are fetching
     fetch('http://localhost:3000/api/v1/profile', {
       method: 'GET',
       headers: {
@@ -47,7 +49,7 @@ export const fetchCurrentUser = () => {
       }
     })
       .then(response => response.json())
-      .then(({ user }) => dispatch(setCurrentUser(user)))
+      .then((JSONResponse) => dispatch(setCurrentUser(JSONResponse.user)))
   }
 }
 
