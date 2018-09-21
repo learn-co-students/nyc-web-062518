@@ -3,7 +3,7 @@ Redux combineReducers & Thunk
 
 ## Outline
 
-- [ ] multiple reducers
+- [x] multiple reducers
 - [ ] async redux
 - [ ] redux thunk
 - [ ] middleware
