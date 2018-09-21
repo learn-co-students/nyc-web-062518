@@ -1,7 +1,7 @@
 export const loginUser = (username, password) => {
   return /*FUNCTION*/ (dispatch) => { //thunk
     console.log(process.env.REACT_APP_API_ENDPOINT)
-    dispatch(authenticatingUser())
+    dispatch({ type: 'AUTHENTICATING_USER' })
     // fetch(`${process.env.REACT_APP_API_ENDPOINT}/api/v1/login`)
     fetch('http://localhost:3000/api/v1/login', { //TODO: move this to an adapter
       method: 'POST',
@@ -24,11 +24,11 @@ export const loginUser = (username, password) => {
         }
       })
       // {user: {}, jwt: 'aaaaaaaaaaaaaaa.bbbbbbbbbbbbbbbbbbbbb.ccccccccccccccccccc'}
-      .then(({ user, jwt }) => {
-        localStorage.setItem('jwt', jwt)
-        dispatch(setCurrentUser(user))
+      .then(JSONResponse => {
+        localStorage.setItem('jwt', JSONResponse.jwt)
+        dispatch({ type: 'SET_CURRENT_USER', payload: JSONResponse.user })
       })
-      .catch(r => r.json().then(e => dispatch(failedLogin(e.message))))
+      .catch(r => r.json().then(e => dispatch({ type: 'FAILED_LOGIN', payload: e.message })))
       // .then((jsonResponse) => {
       //   localStorage.setItem('jwt', jsonResponse.jwt)
       //   dispatch(setCurrentUser(jsonResponse.user))
