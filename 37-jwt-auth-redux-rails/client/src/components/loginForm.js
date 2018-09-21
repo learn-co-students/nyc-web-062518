@@ -64,34 +64,34 @@ class LoginForm extends React.Component {
 //   loggedIn
 // })
 
-const mapStateToProps = (reduxStoreState) => {
-  return {
-    authenticatingUser: reduxStoreState.usersReducer.authenticatingUser,
-    failedLogin: reduxStoreState.usersReducer.failedLogin,
-    error: reduxStoreState.usersReducer.error,
-    user: reduxStoreState.usersReducer.user,
-    loggedIn: reduxStoreState.usersReducer.loggedIn
-  }
-}
+// const mapStateToProps = (reduxStoreState) => {
+//   return {
+//     authenticatingUser: reduxStoreState.usersReducer.authenticatingUser,
+//     failedLogin: reduxStoreState.usersReducer.failedLogin,
+//     error: reduxStoreState.usersReducer.error,
+//     loggedIn: reduxStoreState.usersReducer.loggedIn
+//   }
+// }
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    loginUser: (username, password) => dispatch(loginUser(username, password))
-  }
-}
-
-const connectedToReduxHOC = connect(mapStateToProps, mapDispatchToProps)
-const connectedToReduxLoginForm = connectedToReduxHOC(LoginForm)
-const connectedToReduxHOCWithRouterLoginForm = withRouter(connectedToReduxLoginForm)
-
-export default connectedToReduxHOCWithRouterLoginForm
+const mapStateToProps = ({ usersReducer: { authenticatingUser, failedLogin, error, loggedIn } }) => ({
+  authenticatingUser,
+  failedLogin,
+  error,
+  loggedIn
+})
 
 
-// export default withRouter(connect(mapStateToProps, { loginUser })(LoginForm))
+// const mapDispatchToProps = (dispatch) => {
+//   return {
+//     loginUser: (username, password) => dispatch(loginUser(username, password))
+//   }
+// }
 
-// export default withRouter(
-//   connect(
-//     mapStateToProps,
-//     { loginUser }
-//   )(LoginForm)
-// )
+// const connectedToReduxHOC = connect(mapStateToProps, mapDispatchToProps)
+// const connectedToReduxLoginForm = connectedToReduxHOC(LoginForm)
+// const connectedToReduxHOCWithRouterLoginForm = withRouter(connectedToReduxLoginForm)
+//
+// export default connectedToReduxHOCWithRouterLoginForm
+
+
+export default connect(mapStateToProps, { loginUser })(LoginForm)

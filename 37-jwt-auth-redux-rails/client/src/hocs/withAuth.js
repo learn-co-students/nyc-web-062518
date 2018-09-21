@@ -40,14 +40,14 @@ const withAuth = /*FUNCTION*/ (WrappedComponent) => {
     }
   }
 
-  const connectedToReduxHOC = connect(mapStateToProps, mapDispatchToProps)
-  const connectedAuthorizedComponent = connectedToReduxHOC(AuthorizedComponent)
-  return connectedAuthorizedComponent
+  // const connectedToReduxHOC = connect(mapStateToProps, mapDispatchToProps)
+  // const connectedAuthorizedComponent = connectedToReduxHOC(AuthorizedComponent)
+  // return connectedAuthorizedComponent
 
-  // return connect(
-  //   mapStateToProps,
-  //   actions
-  // )(AuthorizedComponent)
+  return connect(
+    mapStateToProps,
+    actions
+  )(AuthorizedComponent)
 }
 
 export default withAuth

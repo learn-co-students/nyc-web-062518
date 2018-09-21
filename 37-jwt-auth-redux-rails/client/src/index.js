@@ -16,6 +16,8 @@ const rootReducer = combineReducers({ usersReducer: usersReducer }) //TODO: move
 
 const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(thunk))) //TODO: move this
 
+console.log(`%c REDUX STORE`, 'color: purple', store.getState())
+
 ReactDOM.render(
   <Provider store={store}>
     <Router>

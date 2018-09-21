@@ -3,24 +3,30 @@ import { connect } from 'react-redux'
 import { Card, Image } from 'semantic-ui-react'
 import withAuth from '../hocs/withAuth'
 
-const Profile = (props) => (
+const Profile = ({ avatar, username, bio }) => (
   <Card>
-    <Image src={props.avatar} />
+    <Image src={avatar} />
     <Card.Content>
-      <Card.Header>{props.username}</Card.Header>
+      <Card.Header>{username}</Card.Header>
 
-      <Card.Description>{props.bio}</Card.Description>
+      <Card.Description>{bio}</Card.Description>
     </Card.Content>
   </Card>
 )
 
-const mapStateToProps = /*FUNCTION*/ (reduxStoreState) => { //TODO: user obj destructuring
-  return {
-    avatar: reduxStoreState.usersReducer.user.avatar,
-    username: reduxStoreState.usersReducer.user.username,
-    bio: reduxStoreState.usersReducer.user.bio
-  }
-}
+// const mapStateToProps = (reduxStoreState) => {
+//   return {
+//     avatar: reduxStoreState.usersReducer.user.avatar,
+//     username: reduxStoreState.usersReducer.user.username,
+//     bio: reduxStoreState.usersReducer.user.bio
+//   }
+// }
+
+const mapStateToProps = ({ usersReducer: { user: { avatar, username, bio } } }) => ({
+  avatar,
+  username,
+  bio
+})
 
 // const connectedToReduxHOC = connect(mapStateToProps)
 // const connectedProfile = connectedToReduxHOC(Profile)
