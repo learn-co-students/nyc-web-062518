@@ -4,7 +4,7 @@ export const /*FUNCTION*/ loginUser = (username, password) => {
     dispatch({ type: 'AUTHENTICATING_USER' })
     // fetch(`${process.env.REACT_APP_API_ENDPOINT}/api/v1/login`)
     // adapter.loginUser(username, password)
-    fetch('http://localhost:3000/api/v1/login', { //TODO: move this to an adapter
+    fetch(`${process.env.REACT_APP_API_ENDPOINT}/api/v1/login`, { //TODO: move this to an adapter
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -42,7 +42,7 @@ export const fetchCurrentUser = () => {
   // takes the token in localStorage and finds out who it belongs to
   return (dispatch) => {
     dispatch(authenticatingUser()) //tells the app we are fetching
-    fetch('http://localhost:3000/api/v1/profile', {
+    fetch(`${process.env.REACT_APP_API_ENDPOINT}/api/v1/profile`, {
       method: 'GET',
       headers: {
         Authorization: `Bearer ${localStorage.getItem('jwt')}`
